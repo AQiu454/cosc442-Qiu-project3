@@ -1,4 +1,4 @@
-package edu.towson.cis.cosc442.project3.vendingmachine;
+package edu.towson.cis.cosc442.project3.vendingmachine2;
 
 /**
  * This class is for exceptions thrown by the vending machine class.
