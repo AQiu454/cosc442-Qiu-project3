@@ -29,7 +29,6 @@ public class VendingMachineItemTest {
 		String name ="milk";
 		double price = -1;
 		VendingMachineItem result = new VendingMachineItem(name, price);
-		assertNotNull(result);
 	}
 
 	//Test getName() so it returns the proper value
