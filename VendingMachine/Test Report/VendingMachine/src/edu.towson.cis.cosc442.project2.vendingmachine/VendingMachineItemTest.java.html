@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../../../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../../../jacoco-resources/report.gif" type="image/gif"/><title>VendingMachineItemTest.java</title><link rel="stylesheet" href="../../../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../../../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../../../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../../../index.html" class="el_report">VendingMachineItemTest (Mar 7, 2018 8:40:58 PM)</a> &gt; <a href="../../index.html" class="el_group">VendingMachine</a> &gt; <a href="../index.html" class="el_bundle">src</a> &gt; <a href="index.source.html" class="el_package">edu.towson.cis.cosc442.project2.vendingmachine</a> &gt; <span class="el_source">VendingMachineItemTest.java</span></div><h1>VendingMachineItemTest.java</h1><pre class="source lang-java linenums">package edu.towson.cis.cosc442.project2.vendingmachine;
+
+import static org.junit.Assert.*;
+import org.junit.Before;
+import org.junit.Test;
+
+<span class="nc" id="L7">public class VendingMachineItemTest {</span>
+	
+	VendingMachineItem item;
+<span class="nc" id="L10">	final String ITEMNAME = &quot;ItemName&quot;;</span>
+<span class="nc" id="L11">	final double ITEMPRICE = 1.5;</span>
+	
+	//Setup test environment
+	@Before
+	public void setUp() throws Exception {
+<span class="nc" id="L16">		item = new VendingMachineItem(ITEMNAME, ITEMPRICE);</span>
+<span class="nc" id="L17">	}</span>
+
+	//Test VendingMachineItem() constructor so passed values are assigned correctly
+	@Test
+	public void testVendingMachineItem() {
+<span class="nc" id="L22">		item = new VendingMachineItem(&quot;Test name&quot;, 1);</span>
+<span class="nc" id="L23">		assertEquals(&quot;Test name&quot;, item.getName());</span>
+<span class="nc" id="L24">		assertEquals(1, item.getPrice(), .001);</span>
+<span class="nc" id="L25">	}</span>
+	
+	@Test(expected = VendingMachineException.class)
+	public void testVendingMachineItemNegativePrice() throws VendingMachineException {
+<span class="nc" id="L29">		String name =&quot;milk&quot;;</span>
+<span class="nc" id="L30">		double price = -1;</span>
+<span class="nc" id="L31">		VendingMachineItem result = new VendingMachineItem(name, price);</span>
+<span class="nc" id="L32">	}</span>
+
+	//Test getName() so it returns the proper value
+	@Test
+	public void testGetName() {
+<span class="nc" id="L37">		assertEquals(ITEMNAME, item.getName());</span>
+<span class="nc" id="L38">	}</span>
+
+	//Test getPrice()
+	@Test
+	public void testGetPrice() {
+<span class="nc" id="L43">		assertEquals(ITEMPRICE, item.getPrice(), .001);</span>
+<span class="nc" id="L44">	}</span>
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.7.9.201702052155</span>VendingMachineItemTest (Mar 7, 2018 8:40:58 PM)</div></body></html>
