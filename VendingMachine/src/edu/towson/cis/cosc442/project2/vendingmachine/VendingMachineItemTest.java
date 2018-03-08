@@ -25,8 +25,11 @@ public class VendingMachineItemTest {
 	}
 	
 	@Test(expected = VendingMachineException.class)
-	public void testVendingMachineItemNegativePrice() {
-		item = new VendingMachineItem("Test name", -1);
+	public void testVendingMachineItemNegativePrice() throws VendingMachineException {
+		String name ="milk";
+		double price = -1;
+		VendingMachineItem result = new VendingMachineItem(name, price);
+		assertNotNull(result);
 	}
 
 	//Test getName() so it returns the proper value

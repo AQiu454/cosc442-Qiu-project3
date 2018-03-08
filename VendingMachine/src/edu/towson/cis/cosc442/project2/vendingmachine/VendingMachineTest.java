@@ -88,4 +88,73 @@ public class VendingMachineTest {
 		vendor.insertMoney(.5);
 		assertEquals(.5, vendor.returnChange(), .001);
 	}
+
+	//Test GetSlortsIndex for 5 codes
+	@Test
+	public void testGetSlotIndex_1()
+		throws Exception {
+		VendingMachine fixture = new VendingMachine();
+		fixture.balance = 1.0;
+		String code = "A";
+
+		int result = fixture.getSlotIndex(code);
+
+		// add additional test code here
+		assertEquals(0, result);
+	}
+
+
+	@Test
+	public void testGetSlotIndex_2()
+		throws Exception {
+		VendingMachine fixture = new VendingMachine();
+		fixture.balance = 1.0;
+		String code = "B";
+
+		int result = fixture.getSlotIndex(code);
+
+		// add additional test code here
+		assertEquals(1, result);
+	}
+
+
+	@Test
+	public void testGetSlotIndex_3()
+		throws Exception {
+		VendingMachine fixture = new VendingMachine();
+		fixture.balance = 1.0;
+		String code = "C";
+
+		int result = fixture.getSlotIndex(code);
+
+		// add additional test code here
+		assertEquals(2, result);
+	}
+
+
+	@Test
+	public void testGetSlotIndex_4()
+		throws Exception {
+		VendingMachine fixture = new VendingMachine();
+		fixture.balance = 1.0;
+		String code = "D";
+
+		int result = fixture.getSlotIndex(code);
+
+		// add additional test code here
+		assertEquals(3, result);
+	}
+
+
+	@Test(expected = edu.towson.cis.cosc442.project2.vendingmachine.VendingMachineException.class)
+	public void testGetSlotIndex_5()
+		throws Exception {
+		VendingMachine fixture = new VendingMachine();
+		fixture.balance = 1.0;
+		String code = "";
+
+	}
+	
+	
+	
 }

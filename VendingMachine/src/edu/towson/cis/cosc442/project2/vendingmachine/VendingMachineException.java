@@ -24,6 +24,6 @@ public class VendingMachineException extends RuntimeException {
 	 */
 	
 	public VendingMachineException(String reason) {
-		System.out.println(reason);
+		super(reason);
 	}
 }
