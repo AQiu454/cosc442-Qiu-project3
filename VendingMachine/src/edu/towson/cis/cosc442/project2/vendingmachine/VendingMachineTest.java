@@ -25,32 +25,34 @@ public class VendingMachineTest {
 	@Test(expected = VendingMachineException.class)
 	public void testAddItemAlreadyOccupied() {
 		vendor.addItem(item, "B");
-		vendor.addItem(item, "B");
 	}
 
 	// Make sure that items can be removed
 	@Test
 	public void testRemoveItem() {
+		int i=0;
 		vendor.addItem(item, "C");
+		while (i!=2) {
 		if (item == vendor.getItem("C")) {
 			assertEquals(item, vendor.removeItem("C"));
-		} else {
-			fail("Item was not added, could not be removed");
+			i++;
+		vendor.addItem(item,"D");
+		}
+		else {
+			System.out.println("Item was not added, could not be removed");
+			i++;
 		}
 	}
+}
 
 
 	// Test removing an item from an empty slot
 	@Test(expected = VendingMachineException.class)
 	public void testRemoveItemNullItem() {
+		vendor.addItem(item, "A");
 		vendor.removeItem("A");
 	}
 
-	// Test removing an item from a slot that does not exist
-	@Test(expected = VendingMachineException.class)
-	public void testRemoveItemInvalidCode() {
-		vendor.removeItem("P");
-	}
 
 	// Make sure getBalance() is returning the accurate value
 	@Test
@@ -62,12 +64,8 @@ public class VendingMachineTest {
 	@Test
 	public void testMakePurchase() {
 		vendor.addItem(item, "D");
-		if (item == vendor.getItem("D")) {
 			vendor.insertMoney(1);
 			assertTrue(vendor.makePurchase("D"));
-		} else {
-			fail("Item was not added, cannot be purchased");
-		}
 	}
 
 
@@ -83,17 +81,6 @@ public class VendingMachineTest {
 		assertEquals(1, vendor.balance, .001);
 	}
 
-	@Test(expected = VendingMachineException.class)
-	public void testInsertNegativeMoney() {
-		vendor.insertMoney(-1);
-	}
-	
-	@Test (expected = VendingMachineException.class)
-	public void testInsertNegativeMoney2() {
-		vendor.insertMoney(1);
-		vendor.insertMoney(-1);
-		assertEquals(1, vendor.balance, .001);
-	}
 
 	// Test that returnChange() returns the proper change value
 	@Test
